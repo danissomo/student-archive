@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport " content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>somegramm</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand" href={% url 'index' %} >SomethingGram</a>
+        <ul class="navbar-nav navbar-collapse  mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href={% url 'index' %}>Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href={% url 'newpost' %}>New Post</a>
+            </li>
+            <li class="nav-item">
+                 <a class="nav-link" href={% url 'alltags' %}>All tags</a>
+            </li>
+            <li>
+                <div class="nav-item">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+        {% if not user.is_authenticated %}
+        <div class="nav-item inline mr-1">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <input type="text" class="form-control" placeholder="e-mail  " aria-label="email"
+                    aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="nav-item inline  ">
+            <form action={% url 'login' %}>
+                <button type="submit" class="btn btn-primary">login</button>
+            </form>
+
+        </div>
+        <div class="ml-4"></div>
+        <div class="nav-item inline">
+            <form action={% url 'register' %}>
+                <button type="submit" class="btn btn-success rounded-pill">register</button>
+            </form>
+        </div>
+        <div class="ml-2"></div>
+        {% else %}
+        <div class="nav-item inline  rounded-circle" >
+
+            <img src= "{% url 'index' %}{{ user.author.img.url }}" height= 40 width= 40 > 
+        
+        </div> 
+        <div class="ml-2"></div>
+        <div class=" nav-item inline ">
+            <form class="nav-form" action={% url 'profile' %}>
+                <button type="submit" class="btn btn-primary">{{ user.username }}</button>
+            </form> 
+            
+        </div> 
+        
+            
+        <div class="ml-2"></div>
+
+        <div class="nav-item inline"> <form class="nav-form" action={% url 'logout' %}>
+                <button type="submit" class="btn btn-danger">logout</button>
+            </form>  </div>
+        {% endif %}
+        
+
+    </nav>
+    <div class="row container-fluid" style="height: 70px;"></div>
+    <div class="position-fixed container-fluid">
+
+    {% if besttags != null %}
+    
+     {% include "besttags.html" %}
+
+{% endif %} 
+
+
+  <div class="row container-fluid">
+    <div class="col-md-9 ml-4"></div>
+    <div class="col">
+      <div class="card border-secondary">
+        <h4 class="card-header bg-secondary text-light">
+          Best Members
+        </h4>
+        <div class="card-body" style="font-size: x-large;">
+          <a href="#" class="row justify-content-center font-weight-bold">i3</a>
+          <a href="#" class="row justify-content-center font-weight-bold">Awesome WM</a>
+          <a href="#" class="row justify-content-center font-weight-bold">XMonad</a>
+          <a href="#" class="row justify-content-center font-weight-bold">Openbox</a>
+          <a href="#" class="row justify-content-center font-weight-bold">DWM</a>
+          <a href="#" class="row justify-content-center font-weight-bold">Gala</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    {% block content %}
+    
+    {% endblock %}
+    {% block page_pagination %} 
+        {% if is_paginated %}
+        <div class="row container-fluid">
+            <div class="container-fluid">
+              <div class="btn-toolbar justify-content-center " role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group" role="group" aria-label="First group">
+                    <a  href= "/1" class="btn btn-secondary"> 1 </a>
+                    {% for Button in navButtons  %}
+                    {% if Button != '...'  %}
+                         <a  href= {% url 'index'  %}{{ Button }} class="btn btn-secondary"> {{ Button }} </a>
+                    {% else %}
+                         <input type="button"   class="btn btn-secondary" value=  {{ Button }}>
+                    {% endif %}
+                   
+                    {% endfor %}
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+    {% endblock page_pagination %}
+    <div class="row container-fluid" style="height: 50px;"></div>
+</body>
+</html>

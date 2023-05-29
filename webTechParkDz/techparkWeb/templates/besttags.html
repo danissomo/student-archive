@@ -1,0 +1,19 @@
+<div class="row container-fluid my-3">
+      <div class="col-md-9 ml-4"></div>
+      <div class="col">
+        <div class="card border-secondary">
+          <h4 class="card-header bg-secondary text-light">
+            Popular tags
+          </h4>
+          <div class="card-body ">
+            <div class="row">
+              {% for tag in besttags  %}
+              <a href={{ tagshref }}{{ tag }} class="col page-link my-1 ml-1 mr-1 font-weight-bold text-primary">{{tag.text}}</a>
+              {% endfor %}
+              
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

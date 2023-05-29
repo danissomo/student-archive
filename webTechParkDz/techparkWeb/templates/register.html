@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row container-fluid justify-content-center">
+  <h1 class="breadcrumb text-primary">Registration</h1>
+</div>
+<div class="row container-fluid">
+  <div class="text-warning">
+    <h5>
+      {{ errorinform }}
+    </h5>
+  </div>
+</div>
+<form method="POST">
+  {% csrf_token %}
+  <div class="row container-fluid ">
+    <div class="col-5 align-self-center text-right">
+      <h4>login</h4>
+    </div>
+
+
+    <div class="col-3 container">
+      <div class="input-group my-3">
+
+        <input type="text" style="font-size:20pt" class="form-control" aria-label="login"
+          aria-describedby="basic-addon1" value={{ returnLogin }} >
+      </div>
+    </div>
+
+
+    <div class="col"></div>
+  </div>
+
+
+  <div class="row container-fluid ">
+    <div class="col-5 align-self-center text-right">
+      <h4>NickName</h4>
+    </div>
+    <div class="col-3 container">
+      <div class="input-group my-3">
+        <input type="text" style="font-size:20pt" class="form-control" aria-label="nick"
+          aria-describedby="basic-addon1" value={{ returnNick }} >
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+
+  <div class="row container-fluid ">
+      <div class="col-5 align-self-center text-right">
+        <h4>e-mail</h4>
+      </div>
+      <div class="col-3 container">
+        <div class="input-group my-3">
+          <div class="input-group-prepend"><span class="input-group-text" style="font-size: 20pt;"
+              id="basic-addon1">@</span></div>
+          <input type="text" style="font-size:20pt" class="form-control"
+            aria-label="mail" aria-describedby="basic-addon1" value= {{ returnEmail }} >
+        </div>
+      </div>
+      <div class="col"></div>
+    </div>
+
+
+  <div class="row container-fluid ">
+    <div class="col-5 align-self-center text-right">
+      <h4>password</h4>
+    </div>
+    <div class="col-3 container">
+      <div class="input-group my-3">
+        <div class="input-group-prepend"><span class="input-group-text" style="font-size: 20pt;"
+            id="basic-addon1">***</span></div>
+        <input type="text" style="font-size:20pt" class="form-control" aria-label="pswd"
+          aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+
+
+
+
+  <div class="row container-fluid ">
+    <div class="col-5 align-self-center text-right">
+      <h4>repeat password</h4>
+    </div>
+    <div class="col-3 container">
+      <div class="input-group my-3">
+        <div class="input-group-prepend"><span class="input-group-text" style="font-size: 20pt;"
+            id="basic-addon1">***</span></div>
+        <input type="text" style="font-size:20pt" class="form-control" aria-label="repswd"
+          aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+   
+  <div class="row container-fluid">
+    <div class="container align-self-center" style="width: fit-content;">
+        <input type="submit" class="btn btn-success btn-lg" value="register" >
+    </div>
+    
+  </div>
+</form>
+{% endblock content %}

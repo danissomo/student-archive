@@ -1,0 +1,24 @@
+<div class="row container-fluid">
+  <div class="col-9">
+    <div class="card my-3">
+      <div class="card-body" style="font-size:large">
+        <a href={% url 'posts' card.id %} class="link"><h4 class="text-primary" style="font-size: xx-large"> <img src="{{ card.author.img }}"
+            style="height: 100px; width: 100px;" class="img-thumbnail  rounded-pill"> {{card.header}}</h4></a>
+        
+        <p>
+          {{card.text}}
+        </p>
+      </div>
+      <div class="row container-fluid my-2 ml-2">
+        <a class=" btn btn-outline-primary" href="#" role="button">Like <span
+            class="badge badge-dark">{{card.likes.value}}</span></a>
+        <a class="btn btn-outline-danger ml-2" href="#" role="button">Dislike <span
+            class="badge badge-dark">{{card.dislikes.value}}</span></a>
+        {% for tag in card.tags.all %}
+          <a href={% url 'tag' tag %} class=" ml-3 text-center page-link link">#{{ tag }}</a>
+        {% endfor %}
+        <a href='{{ author }}{{ card.id }}' class="link  card-link container-fluid righ text-right">{{ card.author }} </a>
+      </div>
+    </div>
+  </div>
+</div>

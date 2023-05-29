@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="align-content-center align-items-center  container-fluid my-5">
+        <div class="row" style="height: 200px;"></div>
+        <div class="row2  row container-fluid ">
+            <div class="container-fluid card border-primary col-sm-10 col-lg-3">
+                <h2 class="breadcrumb container container-fluid justify-content-center text-primary my-3">
+                    Login
+                </h2>
+                <form  method="POST"  >
+                        {% csrf_token %}
+                    <div class="input-group my-3">
+                        <div class="input-group-prepend"><span class="input-group-text" style="font-size: 20pt;"
+                                id="basic-addon1">@</span></div>
+                        <input type="text" style="font-size:20pt" class="form-control" placeholder="e-mail adres  "
+                            aria-label="e-mail adress" name= "email" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group my-3">
+                        <div class="input-group-prepend"><span class="input-group-text text-center container" style="font-size: 20pt;"
+                                id="basic-addon1"> **</span></div>
+                        <input  type="password" style="font-size: 20pt;" class="form-control" placeholder="password"
+                            aria-label="password" aria-describedby="basic-addon1" name ="password">
+                    </div>
+                    <div class="row">
+                            <input type="submit"  class="btn-success btn-lg text-light btn mr-2 col ml-2" style="font-size: 20pt;" value="login">
+                            <a href="/register/" class=" container-fluid text-right text-center page-link col rounded-pill " style="font-size: 20pt;">Create account</a>
+                    </div>
+                   
+
+                </form>
+                
+
+                <div class="my-1"></div>
+            </div>
+        </div>
+       
+    </div>
+{% endblock content %}
+    

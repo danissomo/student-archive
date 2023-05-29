@@ -1,0 +1,81 @@
+  <div class="position-fixed container-fluid">
+    <div class="row my-3">
+      <div class="col-md-9"></div>
+      <div class="col">
+        <div class="card border-secondary">
+          <h4 class="card-header bg-secondary text-light">
+            Popular tags
+          </h4>
+          <div class="card-body ">
+            <div class="row">
+              <a href="#" class="col page-link my-1 ml-1 mr-1 font-weight-bold text-warning">Lorem</a>
+              <a href="#" class="col page-link my-1 ml-1 mr-1">Lorem</a>
+              <a href="#" class="col page-link my-1 ml-1 mr-1 font-weight-bold">Lorem</a>
+              <a href="#" class="col page-link my-1 ml-1 mr-1">Lorem</a>
+              <a href="#" class="col page-link my-1 ml-1 mr-1 font-weight-bold text-secondary">Lorem</a>
+              <a href="#" class="col page-link my-1 ml-1 mr-1">Lorem</a>
+              <a href="#" class="col page-link my-1 ml-1 mr-1 text-secondary">Lorem</a>
+              <a href="#" class="col page-link my-1 ml-1 mr-1 font-weight-bold ">Lorem</a>
+              <a href="#" class="col page-link my-1 ml-1 mr-1 text-success">Lorem</a>
+              <a href="#" class="col page-link my-1 ml-1 mr-1 text-reset">Lorem</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col-md-9"></div>
+      <div class="col">
+        <div class="card border-secondary">
+          <h4 class="card-header bg-secondary text-light">
+            Best Members
+          </h4>
+          <div class="card-body" style="font-size: x-large;">
+            <a href="#" class="row justify-content-center font-weight-bold">i3</a>
+            <a href="#" class="row justify-content-center font-weight-bold">Awesome WM</a>
+            <a href="#" class="row justify-content-center font-weight-bold">XMonad</a>
+            <a href="#" class="row justify-content-center font-weight-bold">Openbox</a>
+            <a href="#" class="row justify-content-center font-weight-bold">DWM</a>
+            <a href="#" class="row justify-content-center font-weight-bold">Gala</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% for card in questions  %}
+  <div class="row container-fluid">
+    <div class="col-9">
+      <div class="card my-3">
+        <div class="card-body" style="font-size:large">
+          <h4 class="text-primary" style="font-size: xx-large"> <img src={{card.img}}
+              style="height: 100px; width: 100px;" class="img-thumbnail rounded-pill"> {{card.header}}</h4>
+          <p>
+            {{card.text}}
+          </p>
+        </div>
+        <div class="container-fluid my-2">
+          <a class=" btn btn-outline-primary" href="#" role="button">Like <span
+              class="badge badge-dark">{{card.likes}}</span></a>
+          <a class="btn btn-outline-danger " href="#" role="button">Dislike <span
+              class="badge badge-dark">{{card.dislikes}}</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+<div class="row">
+    <div class="container-fluid">
+        <div class="btn-toolbar justify-content-center " role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group" role="group" aria-label="First group">
+            <button type="button" class="btn btn-secondary">1</button>
+            <button type="button" class="btn btn-secondary">2</button>
+            <button type="button" class="btn btn-secondary">3</button>
+            <button type="button" class="btn btn-secondary">4</button>
+          </div>
+        </div>
+      </div>
+    
+</div>
